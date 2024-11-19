@@ -1,40 +1,46 @@
-import { gsap } from "gsap";
+import gsap from "gsap";
 
-// Function to animate sections when they come into view
-const animateSections = () => {
-  // Create a GSAP timeline for animations
-  const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
+// Animate logo on page load
+gsap.from(".logo", {
+  duration: 2,
+  opacity: 0,
+  scale: 0.5,
+  rotation: 360,
+  ease: "elastic.out(1, 0.5)",
+});
 
-  // Animate the profile section
-  tl.from(".profile", {
-    y: 50,
-    opacity: 0,
-    stagger: 0.3,
-  });
+// Animate profile picture
+gsap.from(".picture-resume img", {
+  duration: 1.5,
+  opacity: 0,
+  y: -50,
+  ease: "power2.out",
+});
 
-  // Animate the experience section
-  tl.from(".experience", {
-    y: 50,
-    opacity: 0,
-    stagger: 0.3,
-    delay: 0.5,
-  });
+// Animate name
+gsap.from(".name", {
+  duration: 1.5,
+  opacity: 0,
+  x: -100,
+  delay: 0.5,
+  ease: "power2.out",
+});
 
-  // Animate skill and hobbies sections
-  tl.from(".section-wrapper", {
-    x: -50,
-    opacity: 0,
-    stagger: 0.3,
-    delay: 1,
-  });
+// Animate contact info
+gsap.from(".contact-info ul li", {
+  duration: 1,
+  opacity: 0,
+  x: 50,
+  stagger: 0.3,
+  ease: "power2.out",
+});
 
-  // Optional: animate bubbles in the profile section
-  gsap.fromTo(
-    ".bubble0, .bubble1, .bubble2, .bubble3, .bubble4, .bubble5, .bubble6, .bubble7, .bubble8, .bubble9, .bubble10",
-    { scale: 0.5, opacity: 0 },
-    { scale: 1, opacity: 1, duration: 1.5, repeat: -1, yoyo: true }
-  );
-};
-
-// Call the animation function when the page loads
-window.addEventListener("load", animateSections);
+// Animate experience and skills sections
+gsap.from(".experience", {
+  duration: 1.5,
+  opacity: 0,
+  y: 50,
+  delay: 1,
+  ease: "power2.out",
+  stagger: 0.3,
+});
